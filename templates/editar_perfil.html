@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Financeiro | CredMais</title>
+    <!-- Conecta o arquivo CSS. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+    <!-- Conecta o arquivo JavaScript. -->
+    <script src="{{ url_for('static', filename='js/perfil.js') }}" defer ></script>
+    <link rel="icon" type="image/png" href="../static/uploads/LogoSoloCrediMais.png">
+
+</head>
+
+<body>
+    <header>
+
+            <img class="logo" src="{{ url_for('logo_dashboard') }}" alt="Logo CredMais">
+
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('perfil') }}">Perfil</a>
+            <a href="#">Simulação</a>
+            <a href="#">Empréstimos</a>
+            <a href="{{ url_for('movimentacoes') }}">Movimentações</a>
+        </nav>
+
+    </header>
+
+    <!-- Conteúdo principal. -->
+    <main class="pagina">
+
+        <section class="titulo-pagina">
+            <div class="icone-titulo">
+                <img class="banner-imagem" src="{{ url_for('static', filename='uploads/icone-grafico.png') }}"  alt="Notebook com painel de gráficos e escudo de segurança" height="40px">
+            </div>
+
+            <div>
+                <h1>Perfil Financeiro</h1>
+                <p>Informe seus dados financeiros para continuar.</p>
+            </div>
+
+        </section>
+
+        <!-- Exibe mensagens de sucesso e erro do Flask. -->
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% if mensagens %}
+                <div class="mensagens" aria-live="polite">
+                    {% for categoria, mensagem in mensagens %}
+                        <p class="mensagem {{ categoria }}"> {{ mensagem }} </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="cartoes">
+
+            <!-- CARTÃO DE EDIÇÃO DE DADOS PESSOAIS. -->
+            <section class="cartao cartao-edicao">
+
+                <h2>Editar dados pessoais</h2>
+
+                <!-- O formulário envia os dados ao Flask. -->
+                <form id="form-editar-perfil" method="POST" action="{{ url_for('perfil') }}">
+
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" maxlength="100" value="{{ nome }}" autocomplete="name" required>
+                    </div>
+
+                    <div class="campo">
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" maxlength="100" value="{{ email }}" autocomplete="email" required>
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label for="senha_atual">Senha</label>
+                        <input type="password" id="senha_atual" name="senha_atual" autocomplete="current-password" required>
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label for="nova_senha">Nova senha</label>
+                        <input type="password" id="nova_senha" name="nova_senha" autocomplete="new-password" aria-describedby="ajuda-senha">
+                        <small id="ajuda-senha" class="ajuda">
+                            Deixe em branco se não quiser alterar a senha.
+                        </small>
+
+                    </div>
+
+                    <p id="mensagem-js" class="mensagem-js" role="alert"></p>
+
+                    <!-- Envia o formulário ao Python. -->
+                    <button type="submit" class="botao"> Salvar dados </button>
+
+                </form>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

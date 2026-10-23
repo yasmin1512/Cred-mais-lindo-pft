@@ -1,0 +1,584 @@
+/*
+   BIBLIOTECA DE CORES
+*/
+
+:root {
+    --azul-principal: #1A67F5;
+    --azul-escuro: #123574;
+    --azul-claro: #7186AA;
+
+    --verde: #42BF7A;
+    --verde-icone: #18B35B;
+
+    --vermelho: #FF4D4D;
+
+    --branco: #FFFFFF;
+    --fundo: #F3F6FA;
+}
+
+
+/*
+   CONFIGURAÇÃO GERAL
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--fundo);
+    color: var(--azul-escuro);
+}
+
+
+/*
+   CABEÇALHO
+*/
+
+header {
+    height: 72px;
+    background-color: var(--branco);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+}
+
+
+/*
+   LOGO
+*/
+
+.logo {
+    width: 165px;
+    height: 70px;
+    object-fit: contain;
+}
+
+
+/*
+   MENU
+*/
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--azul-escuro);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/*
+   CONTEÚDO PRINCIPAL
+*/
+
+main {
+    padding: 40px;
+}
+
+
+/*
+   TÍTULO E DATA
+*/
+
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.inicio h1 {
+    font-size: 28px;
+}
+
+.inicio p {
+    color: var(--azul-claro);
+    font-size: 16px;
+}
+
+.data {
+    background-color: var(--branco);
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+}
+
+.data p {
+    color: var(--azul-escuro);
+    font-size: 12px;
+}
+
+
+/*
+   CARDS PRINCIPAIS
+*/
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 35px;
+
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--branco);
+    width: 32%;
+    height: 85px;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+}
+
+
+/*
+   ÍCONES
+*/
+
+.icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 15px;
+}
+
+.icone img {
+    width: 55px;
+    height: 55px;
+}
+
+
+/*
+   TEXTOS DOS CARDS
+*/
+
+.card h3 {
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.card h2 {
+    font-size: 22px;
+    margin-bottom: 3px;
+}
+
+.card p {
+    color: var(--azul-claro);
+    font-size: 12px;
+}
+
+
+/*
+   ÁREA DE AÇÕES
+*/
+
+.acoes {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 35px;
+}
+
+.coluna-esquerda {
+    width: 70%;
+}
+
+.coluna-direita {
+    width: 30%;
+    margin-left: 850px;
+    margin-top: -260px;
+
+}
+
+
+/*
+   CARDS DE AÇÃO
+*/
+
+.card-acao {
+    background-color: var(--branco);
+    height: 110px;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.conteudo-acao {
+    width: 100%;
+}
+
+.conteudo-acao h2 {
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+.conteudo-acao p {
+    color: var(--azul-claro);
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+
+/*
+   BOTÕES
+*/
+
+button {
+    width: 100%;
+    height: 28px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    font-size: 16px;
+}
+
+
+/*
+   BOTÃO VERDE
+*/
+
+.botao-verde {
+    background-color: var(--verde);
+}
+
+
+/*
+   PRÓXIMA PARCELA
+*/
+
+.card-parcela {
+    background-color: var(--branco);
+    height: 100px;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-parcela h3 {
+    font-size: 14px;
+}
+
+.card-parcela h2 {
+    font-size: 22px;
+}
+
+.card-parcela p {
+    color: var(--azul-claro);
+    font-size: 12px;
+}
+
+
+/*
+   SAIR DA CONTA
+*/
+
+.card-sair {
+    background-color: var(--branco);
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.card-sair .icone {
+    margin-right: 0;
+    margin-bottom: 8px;
+}
+
+
+/*
+   POP-UP DE SAIR
+*/
+
+.fundo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 340px;
+    height: 190px;
+
+    background-color: var(--branco);
+
+    border-radius: 5px;
+
+    text-align: center;
+
+    padding: 18px;
+}
+
+.icone-sair {
+    width: 70px;
+    height: 70px;
+
+    background-color: var(--azul-principal);
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 8px;
+}
+
+.icone-sair img {
+    width: 45px;
+    height: 45px;
+}
+
+.modal h2 {
+    font-size: 16px;
+
+    color: #111111;
+
+    margin-bottom: 3px;
+}
+
+.modal p {
+    color: var(--azul-claro);
+
+    font-size: 8px;
+
+    margin-bottom: 15px;
+}
+
+.botoes-modal {
+    display: flex;
+    justify-content: center;
+
+    gap: 28px;
+}
+
+.botoes-modal button {
+    width: 76px;
+    height: 25px;
+
+    border-radius: 4px;
+
+    font-size: 12px;
+}
+
+.botao-sair {
+    background-color: var(--azul-principal);
+
+    color: var(--branco);
+}
+
+.botao-cancelar {
+    background-color: #E8F0FF;
+
+    color: var(--azul-principal);
+
+    border: 1px solid #8EB3FF;
+}
+
+
+/*
+   RESPONSIVIDADE
+   CELULAR
+*/
+
+@media (max-width: 768px) {
+
+    header {
+        height: auto;
+
+        padding: 15px 20px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 45px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .inicio {
+        margin-bottom: 20px;
+    }
+
+    .inicio h1 {
+        font-size: 22px;
+    }
+
+    .inicio p {
+        font-size: 13px;
+    }
+
+    .data {
+        padding: 8px 10px;
+    }
+
+    .cards {
+        gap: 15px;
+    }
+
+    .card {
+        height: 80px;
+        padding: 10px;
+    }
+
+    .icone img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .icone {
+        margin-right: 8px;
+    }
+
+    .card h3 {
+        font-size: 12px;
+    }
+
+    .card h2 {
+        font-size: 17px;
+    }
+
+    .card p {
+        font-size: 10px;
+    }
+
+    .acoes {
+        gap: 20px;
+    }
+
+    .card-acao {
+        height: 105px;
+        padding: 12px;
+    }
+
+    .conteudo-acao h2 {
+        font-size: 16px;
+    }
+
+    .conteudo-acao p {
+        font-size: 10px;
+    }
+
+    button {
+        height: 26px;
+        font-size: 13px;
+    }
+
+    .card-parcela {
+        height: 95px;
+        padding: 12px;
+    }
+
+    .card-parcela h3 {
+        font-size: 12px;
+    }
+
+    .card-parcela h2 {
+        font-size: 17px;
+    }
+
+    .card-parcela p {
+        font-size: 10px;
+    }
+
+    .card-sair {
+        height: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 12px 15px;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .cards {
+        gap: 8px;
+    }
+
+    .card {
+        padding: 8px;
+    }
+
+    .icone img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .icone {
+        margin-right: 5px;
+    }
+
+    .card h3 {
+        font-size: 10px;
+    }
+
+    .card h2 {
+        font-size: 14px;
+    }
+
+    .card p {
+        font-size: 8px;
+    }
+
+    .acoes {
+        gap: 10px;
+    }
+}

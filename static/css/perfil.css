@@ -1,0 +1,267 @@
+
+/* Cores principais utilizadas na página. */
+:root {
+    --azul: #1769d2;
+    --azul-escuro: #0b3d91;
+    --fundo: #f3f6fb;
+    --branco: #ffffff;
+    --texto: #0c2f70;
+    --texto-suave: #879bb8;
+    --borda: #dce6f3;
+}
+
+/* Faz as medidas incluírem o conteúdo, a borda e o preenchimento. */
+* {
+    box-sizing: border-box;
+}
+
+/* Configuração geral do corpo da página. */
+body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/*
+   CABEÇALHO
+*/
+
+header {
+    height: 72px;
+    background-color: var(--branco);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+}
+
+
+/*
+   LOGO
+*/
+
+.logo {
+    width: 165px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 165px;
+    height: 70px;
+}
+
+
+/*
+   MENU
+*/
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--azul-escuro);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Área principal abaixo do cabeçalho. */
+.pagina {
+    width: min(100% - 72px, 1100px);
+    margin: 22px auto 60px;
+}
+
+/* Organiza o ícone e o título da página. */
+.titulo-pagina {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 23px;
+}
+
+
+/* Título principal. */
+.titulo-pagina h1 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Descrição abaixo do título. */
+.titulo-pagina p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 10px;
+}
+
+/* Posiciona os dois cartões lado a lado. */
+.cartoes {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* Aparência compartilhada pelos cartões. */
+.cartao {
+    min-width: 0;
+    padding: 15px;
+    background: var(--branco);
+    border-radius: 11px;
+}
+
+/* Títulos dos cartões. */
+.cartao h2 {
+    margin: 0 0 24px;
+    color: var(--texto);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Diminui o espaço abaixo do título de edição. */
+.cartao-edicao h2 {
+    margin-bottom: 8px;
+}
+
+/* Organiza cada campo e sua legenda. */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0 0 15px;
+}
+
+/* Estilo das legendas dos campos. */
+.campo label {
+    padding-left: 3px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* Estilo das caixas de texto. */
+.campo input {
+    width: 100%;
+    height: 25px;
+    padding: 5px 10px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+    background: white;
+    color: var(--texto);
+    font: inherit;
+}
+
+/* Destaca o campo que está sendo preenchido. */
+.campo input:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 2px rgba(23, 105, 210, 0.10);
+}
+
+/* Botão azul utilizado nos dois cartões. */
+.botao {
+    width: 100%;
+    min-height: 29px;
+    padding: 7px 12px;
+    border: 0;
+    border-radius: 9px;
+    background: #2165f5;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Mantém o botão financeiro sem ação nesta etapa. */
+.botao:disabled {
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Texto auxiliar do campo Nova senha. */
+.ajuda {
+    color: var(--texto-suave);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* Espaço entre as mensagens de retorno do Python. */
+.mensagens {
+    margin-bottom: 15px;
+}
+
+/* Aparência geral das mensagens. */
+.mensagem {
+    margin: 0 0 8px;
+    padding: 10px 12px;
+    border-radius: 7px;
+    background: white;
+    font-size: 12px;
+}
+
+/* Mensagem de sucesso. */
+.mensagem.sucesso {
+    border: 1px solid #a8dfbd;
+    color: #176b38;
+}
+
+/* Mensagem de erro. */
+.mensagem.erro {
+    border: 1px solid #f0b9b9;
+    color: #a91818;
+}
+
+/* Adaptação para celulares e telas menores. */
+@media (max-width: 700px) {
+
+    /* Coloca a marca e o menu em linhas diferentes. */
+    .topo {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Permite que os links ocupem mais de uma linha. */
+    .menu {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    /* Reduz as margens laterais. */
+    .pagina {
+        width: calc(100% - 30px);
+        margin-top: 20px;
+    }
+
+    /* Coloca um cartão abaixo do outro. */
+    .cartoes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mensagem inicialmente vazia e invisível. */
+.mensagem-js {
+    display: none;
+    margin: 0 0 12px;
+    padding: 9px;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+/* Mostra a mensagem quando houver um erro. */
+.mensagem-js.erro {
+    display: block;
+    color: #a91818;
+    background: #fff0f0;
+    border: 1px solid #f0b9b9;
+}
